@@ -1,24 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoadingPage.css';
 
 function LoadingPage() {
-  const [progress, setProgress] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => navigate('/contact'), 500);
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 50);
-
-    return () => clearInterval(interval);
+    // Redirect to contact page immediately
+    navigate('/contact');
   }, [navigate]);
 
   return (
@@ -30,16 +19,6 @@ function LoadingPage() {
           </div>
           <h1 className="app-title">MatrixChat</h1>
           <p className="app-subtitle">Secure Communication Platform</p>
-        </div>
-
-        <div className="loading-section">
-          <div className="progress-bar">
-            <div 
-              className="progress-fill" 
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
-          <p className="loading-text">Loading... {progress}%</p>
         </div>
 
         <div className="features-section">

@@ -1,22 +1,31 @@
 .contact-page {
   min-height: 100vh;
+  min-height: 100dvh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 20px;
+  padding: 40px 20px;
+  padding: 40px 20px max(20px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .contact-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 700px;
+  width: 100%;
 }
 
 .contact-header {
-  padding: 20px 0;
-  margin-bottom: 40px;
+  padding: 20px 0 40px 0;
+  text-align: center;
 }
 
 .logo-small {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   font-size: 24px;
   font-weight: bold;
@@ -28,14 +37,15 @@
 }
 
 .contact-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
+  background: white;
+  padding: 50px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.contact-info h1 {
-  font-size: 48px;
+.contact-content h1 {
+  font-size: 42px;
   color: #2d3748;
   margin: 0 0 20px 0;
 }
@@ -44,157 +54,93 @@
   font-size: 18px;
   color: #4a5568;
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin: 0 0 40px 0;
 }
 
-.info-cards {
+.support-info {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
+  margin: 40px 0;
 }
 
 .info-card {
-  background: white;
-  padding: 25px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  color: white;
   transition: transform 0.2s;
 }
 
 .info-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
 }
 
 .info-icon {
-  font-size: 36px;
-  flex-shrink: 0;
+  font-size: 40px;
+  display: block;
+  margin-bottom: 15px;
 }
 
-.info-card h3 {
-  margin: 0 0 5px 0;
-  color: #2d3748;
-  font-size: 18px;
+.info-card h2 {
+  margin: 0 0 12px 0;
+  font-size: 22px;
 }
 
 .info-card p {
   margin: 0;
-  color: #667eea;
-  font-weight: 500;
-}
-
-.contact-form-section {
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form h2 {
-  margin: 0 0 30px 0;
-  color: #2d3748;
-  font-size: 28px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  color: #2d3748;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 12px 16px;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
   font-size: 16px;
-  transition: border-color 0.2s;
-  font-family: inherit;
-  box-sizing: border-box;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #667eea;
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.info-card a {
   color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  text-decoration: none;
   font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  transition: border-color 0.2s;
 }
 
-.submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+.info-card a:hover {
+  border-bottom-color: white;
 }
 
-.submit-btn:active {
-  transform: translateY(0);
+.help-section {
+  text-align: left;
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 2px solid #e2e8f0;
 }
 
-.success-message {
-  margin-top: 15px;
-  padding: 12px;
-  background: #d4edda;
-  color: #155724;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: 500;
-  animation: slideDown 0.3s ease;
+.help-section h2 {
+  color: #2d3748;
+  font-size: 24px;
+  margin: 0 0 20px 0;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.help-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-@media (max-width: 968px) {
-  .contact-content {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-info h1 {
-    font-size: 36px;
-  }
-
-  .contact-form-section {
-    padding: 30px 20px;
-  }
+.help-section li {
+  color: #4a5568;
+  font-size: 16px;
+  padding: 12px 0;
+  line-height: 1.6;
 }
 
 @media (max-width: 600px) {
-  .contact-info h1 {
-    font-size: 28px;
+  .contact-page {
+    padding: 20px;
+  }
+
+  .contact-content {
+    padding: 30px 20px;
+  }
+
+  .contact-content h1 {
+    font-size: 32px;
   }
 
   .contact-description {
@@ -202,7 +148,10 @@
   }
 
   .info-card {
-    flex-direction: column;
-    text-align: center;
+    padding: 25px;
+  }
+
+  .info-card h2 {
+    font-size: 18px;
   }
 }
